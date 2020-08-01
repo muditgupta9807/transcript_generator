@@ -47,6 +47,9 @@ footnote4 = "Date : "+str(datetime.datetime.today().strftime ('%d-%b-%Y'))
 semno = ("SEM. 1 (July-Nov. 2018) ","SEM. 2 (Jan-May. 2019)","SEM. 3 (July-Nov. 2019) ","SEM. 4 (Jan-May. 2020)","SEM. 5 (July-Nov. 2020) ","SEM. 6 (Jan-May. 2021)","SEM. 7 (July-Nov. 2021) ","SEM. 8 (Jan-May. 2022)")
 
 
+#Student Marks 
+marks = ([["MAl 101","Mathemathics-1","4","BB"],["HUl 101","Numerical Methods and Probability Theory","3","BB"],["ECl 101","Electonics,Devices and Circuits","4","AB"]],[],[["MAl 101","Mathemathics-1","4","BB"],["HUl 101","Coomunication Skills","3","BB"],["ECl 101","Electonics,Devices and Circuits","4","AB"]])
+
 #Creating Canvas
 x= canvas.Canvas(save_location,pagesize = A4,)
 
@@ -56,7 +59,7 @@ x= canvas.Canvas(save_location,pagesize = A4,)
 #College Name,Logo,Header 
 x.setFont('hindi', 14)
 x.drawString(135,780,college_name_hindi.convert)
-x.setFont('arial', 18)
+x.setFont('Times-Bold', 18)
 x.drawString(135,750,college_name_english)
 x.drawImage(logo,50,750,width=1*inch,height=1*inch)
 x.setLineWidth(2)
@@ -93,9 +96,31 @@ x.setStrokeColor('black')
 mt=670
 ml=50
 for i in range(0,8):
+    #Printing Grid
     x.grid([ml,ml+245],[mt,mt-13])
-    x.grid([ml,ml+39,ml+169,ml+209,ml+245],[mt-13,mt-30+1,mt-40+1,mt-50+1,mt-60+1,mt-70+1,mt-80+1,mt-90+1,mt-100+1])
-    x.grid([ml,ml+39,ml+169,ml+209,ml+245],[mt-110,mt-120,mt-130])
+    x.grid([ml,ml+30,ml+169,ml+209,ml+245],[mt-13,mt-30+1,mt-40+1,mt-50+1,mt-60+1,mt-70+1,mt-80+1,mt-90+1,mt-100+1])
+    x.grid([ml,ml+30,ml+169,ml+209,ml+245],[mt-110,mt-120,mt-130])
+    
+    #Printing Sem Numbers 
+    x.setFont('VeraBd',8)
+    x.drawString(ml+5,mt-10,semno[i])
+    
+    #Printing Sr. No Course Code Credits and Grade Heading 
+    x.setFont('VeraBd',7)
+    x.drawString(ml+2,mt-27,"CODE")
+    x.drawString(ml+32,mt-27,"COURSE")
+    x.drawString(ml+172,mt-27,"CREDIT")
+    x.drawString(ml+212,mt-27,"GRADE")
+    
+    #Printing Subjects 
+    if(len(marks)>i):
+        for j in range(0,len(marks[i])):
+            x.setFont('arial',6)
+            x.drawString(ml+2,mt-37-j*10,marks[i][j][0])
+            x.drawString(ml+32,mt-37-j*10,marks[i][j][1])
+            x.drawString(ml+172,mt-37-j*10,marks[i][j][2])
+            x.drawString(ml+212,mt-37-j*10,marks[i][j][3])
+    
     if(i%2==0):
         ml=ml+250
     else:
