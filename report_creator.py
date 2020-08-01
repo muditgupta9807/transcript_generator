@@ -15,7 +15,7 @@ from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
 from englisttohindi.englisttohindi import EngtoHindi
 #Registering hindi font
-pdfmetrics.registerFont(TTFont('hindi', 'dev.ttf'))
+#pdfmetrics.registerFont(TTFont('hindi', 'dev.ttf'))
 pdfmetrics.registerFont(TTFont('arial', 'arial.ttf'))
 pdfmetrics.registerFont(TTFont('VeraBd', 'VeraBd.ttf'))
 pdfmetrics.registerFont(TTFont('Vera', 'Vera.ttf'))
@@ -48,7 +48,7 @@ def expo(loc,name,enrol,dept,deg,note1pg,student_marks,sem_details):
 
 
     #College Name,Logo,Header 
-    x.setFont('hindi', 14)
+    #x.setFont('hindi', 14)
     x.drawString(135,780,college_name_hindi.convert)
     x.setFont('Times-Bold', 18)
     x.drawString(135,750,college_name_english)
