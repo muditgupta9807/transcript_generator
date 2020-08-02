@@ -12,10 +12,9 @@ import datetime
 
 
 
-
 #Defining Parameters
 location = "C:/Users/DC/Desktop/test.pdf"
-name = "Mudit Gupta"
+name = "Anirddha Gawate"
 enrolment = "BT18ECE013"
 branch = "Electronics and Communication Engineering"
 degree = "Bachelors Of Technology"
@@ -29,6 +28,8 @@ semno = ("SEM. 1 (July-Nov. 2018) ","SEM. 2 (Jan-May. 2019)","SEM. 3 (July-Nov. 
     
 #Student Marks 
 marks = ([["MAl 101","Mathemathics-1","4","BB"],["HUl 101","Numerical Methods and Probability Theory","3","BB"],["ECl 101","Electonics,Devices and Circuits","4","AB"]],[],[["MAl 101","Mathemathics-1","4","BB"],["HUl 101","Coomunication Skills","3","BB"],["ECl 101","Electonics,Devices and Circuits","4","AB"]])
-    
+marks2= ([11,92,8.36,11,92,8.36],[],[11,92,8.36,11,92,8.36],[])   
+
+   
 #Calling the Function
-rc.expo(location,name,enrolment,branch,degree,footnote,marks,semno)
+rc.expo(location,name,enrolment,branch,degree,footnote,marks,marks2,semno)

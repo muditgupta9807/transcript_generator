@@ -6,28 +6,31 @@ Created on Fri Jul 31 23:19:35 2020
 """
 
 #importing libraries
-
+import os
 import datetime
+import reportlab
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import inch
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
-from englisttohindi.englisttohindi import EngtoHindi
+
+
 #Registering hindi font
 #pdfmetrics.registerFont(TTFont('hindi', 'dev.ttf'))
 pdfmetrics.registerFont(TTFont('arial', 'arial.ttf'))
 pdfmetrics.registerFont(TTFont('VeraBd', 'VeraBd.ttf'))
 pdfmetrics.registerFont(TTFont('Vera', 'Vera.ttf'))
 
+#Required Paramneters
+college_name_english = "Indian Institute Of Information Technology, Nagpur"
+college_name_hindi = "भारतीय सूचना प्रौद्योगिकी संस्थान, नागपुर"
+logo = "iiitlogo.png" 
+
+
 def expo(loc,name,enrol,dept,deg,note1pg,student_marks,student_marks_cumlative,sem_details):
     
-    #Required Paramneters
-    college_name_english = "Indian Institute Of Information Technology, Nagpur"
-    college_name_hindi = EngtoHindi(message="Indian Institute of Information Technology, Nagpur".encode('utf-8'))
-    logo = "iiitlogo.png"               
-    
-    
+                  
     save_location = loc
     namee = name
     enrolment = enrol
@@ -41,6 +44,7 @@ def expo(loc,name,enrol,dept,deg,note1pg,student_marks,student_marks_cumlative,s
     
     #Student Marks 
     marks = student_marks
+    marks2 =student_marks_cumlative
 
     #Creating Canvas
     x= canvas.Canvas(save_location,pagesize = A4,)
@@ -50,7 +54,7 @@ def expo(loc,name,enrol,dept,deg,note1pg,student_marks,student_marks_cumlative,s
 
     #College Name,Logo,Header 
     #x.setFont('hindi', 14)
-    x.drawString(135,780,college_name_hindi.convert)
+    x.drawString(135,780,college_name_hindi)
     x.setFont('Times-Bold', 18)
     x.drawString(135,750,college_name_english)
     x.drawImage(logo,50,750,width=1*inch,height=1*inch)
@@ -127,8 +131,11 @@ def expo(loc,name,enrol,dept,deg,note1pg,student_marks,student_marks_cumlative,s
                 x.drawString(ml+172,mt-37-j*10,marks[i][j][2])
                 x.drawString(ml+212,mt-37-j*10,marks[i][j][3])
                 
-        #Printing Cumlative Subjects
-        
+            #Printing Cumlative Subjects
+            shift=0
+            for j in range(0,6):
+                x.drawString(ml+50+shift,mt-130,str(marks2[i][j]))
+                shift += 75 if j==2 else 25
 
 
         
@@ -140,27 +147,4 @@ def expo(loc,name,enrol,dept,deg,note1pg,student_marks,student_marks_cumlative,s
                 
     #Save The PDF
     x.save()    
-
-
-
-
-
-#Defining Parameters
-location = "C:/Users/DC/Desktop/test.pdf"
-name = "Mudit Gupta"
-enrolment = "BT18ECE013"
-branch = "Electronics and Communication Engineering"
-degree = "Bachelors Of Technology"
     
-#Footnotes
-footnote = ("Note : Candidate has successfully completed all requirements for award of degree Medium of instruction : English","Abbreviations: SGPA - Semester Grade Point Average, CGPA - Cumlative Grade Point Average, EGP - Earned Grade Points","(The Statment is subject to correction, if any)","Date : "+str(datetime.datetime.today().strftime ('%d-%b-%Y')))
-
-#Sem Notes
-semno = ("SEM. 1 (July-Nov. 2018) ","SEM. 2 (Jan-May. 2019)","SEM. 3 (July-Nov. 2019) ","SEM. 4 (Jan-May. 2020)","SEM. 5 (July-Nov. 2020) ","SEM. 6 (Jan-May. 2021)","SEM. 7 (July-Nov. 2021) ","SEM. 8 (Jan-May. 2022)")
-    
-    
-#Student Marks 
-marks = ([["MAl 101","Mathemathics-1","4","BB"],["HUl 101","Numerical Methods and Probability Theory","3","BB"],["ECl 101","Electonics,Devices and Circuits","4","AB"]],[],[["MAl 101","Mathemathics-1","4","BB"],["HUl 101","Coomunication Skills","3","BB"],["ECl 101","Electonics,Devices and Circuits","4","AB"]])
-    
-#Calling the Function
-expo(location,name,enrolment,branch,degree,footnote,marks,0,semno)       
