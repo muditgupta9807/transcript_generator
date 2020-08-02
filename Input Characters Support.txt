@@ -1,0 +1,19 @@
+Max Parameter Support for the Variables
+
+
+Name Max Length - 45 characters including spaces
+Branch Max Length - 45 characters including spaces
+Enrolment No. Max Lenth - 15 characters
+Degree Max Length - 25 characters 
+
+
+
+Course_Code Max Length - 7 characters including spaces
+Course Name Max Length - 45 characters including spaces
+Credit Max Length - 2 characters including spaces
+Grade Max Length - 2 characters including spaces
+EGP Max Length - 4 characters including spaces
+SGPA Max Length - 4 characters including spaces
+CGPA Max Length - 4 characters including spaces
+
+
