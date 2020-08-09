@@ -14,13 +14,13 @@ import datetime
 
 #Defining Parameters
 location = "C:/Users/DC/Desktop/test.pdf"
-name = "Anirddha Gawate"
+name = "Mudit Gupta"
 enrolment = "BT18ECE013"
 branch = "Electronics and Communication Engineering"
 degree = "Bachelors Of Technology"
     
 #Footnotes
-footnote = ("Note : Candidate has successfully completed all requirements for award of degree Medium of instruction : English","Abbreviations: SGPA - Semester Grade Point Average, CGPA - Cumlative Grade Point Average, EGP - Earned Grade Points","(The Statment is subject to correction, if any)","Date : "+str(datetime.datetime.today().strftime ('%d-%b-%Y')))
+footnote = ("Note : Candidate has successfully completed all requirements for award of degree Medium of instruction : English","Abbreviations: SGPA - Semester Grade Point Average, CGPA - Cumlative Grade Point Average, EGP - Earned Grade Points","(The Statment is subject to correction, if any)","Date : "+str(datetime.datetime.today().strftime ('%d-%b-%Y')),"THIS IS ELECTRONICALLY GENERATED DOCUMENT AND DOES NOT REQUIRE SIGNATURE")
 
 #Sem Notes
 semno = ("SEM. 1 (July-Nov. 2018) ","SEM. 2 (Jan-May. 2019)","SEM. 3 (July-Nov. 2019) ","SEM. 4 (Jan-May. 2020)","SEM. 5 (July-Nov. 2020) ","SEM. 6 (Jan-May. 2021)","SEM. 7 (July-Nov. 2021) ","SEM. 8 (Jan-May. 2022)")

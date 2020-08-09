@@ -8,8 +8,8 @@ Degree Max Length - 25 characters
 
 
 
-Course_Code Max Length - 7 characters including spaces
-Course Name Max Length - 45 characters including spaces
+Course_Code Max Length - 6 characters including spaces
+Course Name Max Length - 40 characters including spaces
 Credit Max Length - 2 characters including spaces
 Grade Max Length - 2 characters including spaces
 EGP Max Length - 4 characters including spaces
